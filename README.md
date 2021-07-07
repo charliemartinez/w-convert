@@ -7,6 +7,10 @@ Agradecimiento especial a Pablo López (Etertics).
 
 Hecho para el sistema operativo Quirinux GNU/Linux, compatible con Debian, Ubuntu, Devuan, Etertics, GobMis y otras derivadas.
 
+**Programado en lenguaje Gambas3**
+
 Licencia GPLv2.
 
 Logotipo de Quirinux: Thomas Gaya. 
+
+
