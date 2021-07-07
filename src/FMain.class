@@ -1,0 +1,74 @@
+' Gambas class file
+
+' W-Convert '
+' Autor: Charlie Martínez, aunque basado en CompressorPDF de LuisGulo (GPL)'
+
+
+Public Sub BotonSALIR_Click()
+  Me.Close
+End
+
+Public Sub botonSeleccionarMP4_Click()
+  botonSeleccionarMP4.Tag = ""
+  frmSeleccionarMP4.Load
+  frmSeleccionarMP4.ShowModal
+End
+
+
+
+Public Sub form_Show()
+
+End
+
+Public Sub BotonCOMPRIMIR_Click()
+ If botonSeleccionarMP4.Tag = ""
+  Message.Title = ("Error - Fichero MP4")
+  Message.Error("Debe de seleccionar un fichero MP4")
+  Return
+ Else
+   'Tenemos fichero
+   Dim FichSalida As String
+   Dim trozo As String[]
+   trozo = Split(botonSeleccionarMP4.Tag, "/")
+   Dim i As Integer
+   For i = 0 To trozo.Max - 1
+     FichSalida &= trozo[i] & "/"
+   Next
+   FichSalida &= ("MP4_Convertido-") & trozo[trozo.Max]
+   If Exist(FichSalida)
+      ' Si existe borramos el anterior
+      Kill FichSalida 
+   Endif
+  
+   Procesando.Visible = True
+   Procesando.Show
+   Procesando.Start
+   Procesando.Refresh
+   Wait 0.1
+   Procesando.Refresh   
+ 
+   Dim Comando As String 
+   Comando = GeneraCMD(botonSeleccionarMP4.Tag, FichSalida)
+   'Message("Voy a ejecutar:" & gb.CrLf & Comando)
+   Shell Comando Wait ' Esperamos a que termine
+    ' Al terminar ocultamos siempre el "Spinner"
+   Procesando.Stop
+   Procesando.Visible = False
+   Procesando.Hide
+   Message.Title = ("Conversión Finalizada")
+   Message("Se ha convertido el fichero MP4 indicado" & gb.CrLf & "lo puedes encontrar en:" & gb.CrLf & FichSalida)
+  Endif
+End
+
+
+Public Function GeneraCMD(FichEntrada As String, FichSalida As String) As String
+  Dim ComandoSalida As String
+    ComandoSalida = "ffmpeg -i " & Shell$(FichEntrada) & " -vcodec libx264 -acodec aac " & Shell$(FichSalida)
+  Return ComandoSalida  
+End
+
+
+Public Sub Form_Open()
+  LabelVERSION.Text = ("Versión: ") & Application.Version
+  System.Shell = "/bin/bash"
+End

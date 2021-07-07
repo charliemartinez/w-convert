@@ -1,0 +1,32 @@
+' Gambas class file
+
+Public Sub Form_Open()
+  Me.x = FMain.x + 10
+  Me.y = FMain.y + 10  
+  escogeFichero.Filter = ["*.mp4", ("Ficheros MP4")]
+End
+
+Public Sub botonCANCELAR_Click()
+  FMain.botonSeleccionarMP4.Tag = ""
+  Me.Close
+End
+
+Public Sub botonACEPTAR_Click()
+  Dim tipo As String
+  Dim fichero As String
+  fichero = escogeFichero.SelectedPath
+  ' No creemos al usuario.. veamos si es un MP4...
+  Shell "echo -n $(file " & fichero & "|awk -F ':' '{print $2}'|grep -i 'mp4'|wc -l)" To tipo
+  If tipo <> "0" 
+  ' file fichero |awk -F ': ' '{print $2}'|grep -i "mp4"|wc -l
+    ' Enviamos como STRING la URL absoluta del fichero
+    FMain.botonSeleccionarMP4.Tag = escogeFichero.SelectedPath
+   ' FMain.Frame1.Enabled = True'
+    Me.Close  
+  Else
+    ' No es un MP4
+    FMain.Frame1.Enabled = False
+    Message.Title = ("ERROR - Fichero MP4")
+    Message.Error("El fichero seleccionado no es un MP4")
+  Endif
+End

@@ -1,0 +1,41 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,61,33)
+  Text = ("W-Convert")
+  { LabelAPP Label
+    MoveScaled(3,1,55,5)
+    Font = Font["Bold,+3"]
+    Text = ("W-Convert para mp4")
+    Alignment = Align.Center
+  }
+  { LabelAPP2 Label
+    MoveScaled(2,10,56,5)
+    Text = ("Hacer vídeos compatibles con Windows y Whatsapp")
+    Alignment = Align.Center
+  }
+  { !botonSeleccionarMP4 ToolButton
+    MoveScaled(3,16,56,5)
+    #Public = True
+    Text = ("Seleccionar vídeo MP4")
+    Picture = Picture["icon:/32/multimedia"]
+    Border = True
+  }
+  { BotonSALIR Button
+    MoveScaled(2,23,20,5)
+    Text = ("Salir")
+  }
+  { BotonCOMPRIMIR Button
+    MoveScaled(38,23,20,5)
+    Text = ("Convertir MP4")
+  }
+  { Procesando Spinner
+    MoveScaled(27,23,5,5)
+    Visible = False
+  }
+  { LabelVERSION Label
+    MoveScaled(3,6,55,5)
+    Text = ("Versión x.y.z")
+    Alignment = Align.Center
+  }
+}

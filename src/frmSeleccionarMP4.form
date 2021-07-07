@@ -1,0 +1,19 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,79,79)
+  Text = ("Seleccione un MP4")
+  Resizable = False
+  { escogeFichero FileChooser
+    MoveScaled(1,1,76,68)
+    Root = "/home"
+  }
+  { botonCANCELAR Button
+    MoveScaled(33,71,21,6)
+    Text = ("Cancelar")
+  }
+  { botonACEPTAR Button
+    MoveScaled(56,71,21,6)
+    Text = ("Aceptar")
+  }
+}
