@@ -7,7 +7,8 @@ Agradecimiento especial a Pablo López (Etertics).
 
 Hecho para el sistema operativo Quirinux GNU/Linux, compatible con Debian, Ubuntu, Devuan, Etertics, GobMis y otras derivadas.
 
-**Programado en lenguaje Gambas3**
+**Programado en lenguaje Gambas3.**
+http://gambas.sourceforge.net/en/main.html
 
 Licencia GPLv2.
 
