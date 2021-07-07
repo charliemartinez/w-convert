@@ -5,7 +5,7 @@ En ocasiones, los ficheros mp4 creados con herramientas como Kdenlive en GNU/Lin
 Autor: Charlie Martínez, sobre la base de CompresorPDF de LuisGulo.
 Agradecimiento especial a Pablo López (Etertics). 
 
-Hecho para el sistema operativo Quirinux GNU/Linux, compatible con Debian. 
+Hecho para el sistema operativo Quirinux GNU/Linux, compatible con Debian, Ubuntu, Devuan, Etertics, GobMis y otras derivadas.
 
 Licencia GPLv2.
 
